@@ -1,11 +1,10 @@
 package com.scarytom;
 
-import java.util.HashSet;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
 
+import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class PrintoutTest {
@@ -21,10 +20,12 @@ public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeSingleNodeNetwork() {
-		Programmer bill = new Programmer("Bill", new HashSet<String>());
-		Programmer mary = new Programmer("Mary", new HashSet<String>());
+		Programmer bill = new Programmer("Bill", Sets.newHashSet("Java", "C#"));
+		Programmer mary = new Programmer("Mary", Sets.newHashSet("COBOL", "C#",
+				"Java"));
 		mary.addRecommendation(bill);
-		Programmer luke = new Programmer("Luke", new HashSet<String>());
+		Programmer luke = new Programmer("Luke", Sets.newHashSet("Javascript",
+				"Java"));
 		luke.addRecommendation(bill);
 		bill.addRecommendation(mary);
 		bill.addRecommendation(luke);
@@ -33,11 +34,11 @@ public class PrintoutTest {
 				.withProgrammer(luke).withProgrammer(mary).build().printout();
 		Assert.assertEquals(HEADER
 
-		+ "\n" + "Bill\t\tLuke, Mary"
+		+ "\n" + "Bill\tC#, Java\tLuke, Mary"
 
-		+ "\n" + "Luke\t\tBill"
+		+ "\n" + "Luke\tJava, Javascript\tBill"
 
-		+ "\n" + "Mary\t\tBill"
+		+ "\n" + "Mary\tC#, COBOL, Java\tBill"
 
 		, result);
 	}
