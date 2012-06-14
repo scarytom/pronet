@@ -11,7 +11,7 @@ public class Programmer implements Comparable<Programmer> {
 
 	public Programmer(final String name, final Set<String> skills) {
 		this.name = name;
-		this.skills = skills;
+		this.skills = Sets.newTreeSet(skills);
 	}
 
 	public Set<Programmer> recommendations() {

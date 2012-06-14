@@ -23,7 +23,23 @@ public class Network {
 	private String printProgrammers() {
 		String result = "";
 		for (Programmer p : _programmers) {
-			result += "\n" + p.name() + "\t" + "\t" + getRecommendations(p);
+			result += "\n" + p.name() + "\t" + getSkills(p) + "\t"
+					+ getRecommendations(p);
+		}
+		return result;
+	}
+
+	private String getSkills(final Programmer p) {
+		Set<String> skills = p.skills();
+		int i = 0;
+		String result = "";
+		for (String skill : skills) {
+			if (i != 0) {
+				result += ", ";
+			}
+			result += skill;
+			i++;
+
 		}
 		return result;
 	}
