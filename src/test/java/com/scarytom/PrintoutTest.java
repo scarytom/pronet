@@ -10,11 +10,12 @@ import com.scarytom.pronet.Programmer;
 
 public class PrintoutTest {
 
+	String HEADER = "Programmer\tSkills\tRecommends";
+
 	@Test
 	public void testCanDescribeEmptyNetwork() {
 		String result = new NetworkBuilder().build().printout();
-		String header = "Programmer\tSkills\tRecommends";
-		Assert.assertEquals(header, result);
+		Assert.assertEquals(HEADER, result);
 
 	}
 
@@ -23,8 +24,7 @@ public class PrintoutTest {
 		Programmer programmer = new Programmer("Bill", Collections.EMPTY_SET);
 		String result = new NetworkBuilder().withProgrammer(programmer).build()
 				.printout();
-		String header = "Programmer\tSkills\tRecommends";
 
-		Assert.assertEquals(header, result);
+		Assert.assertEquals(HEADER + "\n" + "Bill\t\t", result);
 	}
 }

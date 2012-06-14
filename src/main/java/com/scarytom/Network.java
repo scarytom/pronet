@@ -1,20 +1,29 @@
 package com.scarytom;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import com.scarytom.pronet.Programmer;
 
 public class Network {
 
-	private final Set<Programmer> _programmers = new HashSet<Programmer>();
+	private static final String HEADER = "Programmer\tSkills\tRecommends";
+	private final Set<Programmer> _programmers;
 
-	public Network(final Programmer programmer) {
-		_programmers.add(programmer);
+	public Network(final Set<Programmer> programmers) {
+		_programmers = programmers;
 	}
 
 	public String printout() {
-		return "Programmer\tSkills\tRecommends";
+
+		return HEADER + printProgrammers();
+	}
+
+	private String printProgrammers() {
+		String result = "";
+		for (Programmer p : _programmers) {
+			result += "\n" + p.name() + "\t" + "\t";
+		}
+		return result;
 	}
 
 	public Set<Programmer> programmers() {
