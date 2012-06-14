@@ -1,12 +1,15 @@
 package com.scarytom;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeNetwork() {
-		new Network().printout();
+		String result = new Network().printout();
+		Assert.assertEquals("", result);
 
 	}
 
