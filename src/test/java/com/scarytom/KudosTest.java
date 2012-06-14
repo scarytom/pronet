@@ -15,20 +15,19 @@ public class KudosTest {
 
 	@Test
 	public void twoNodeGraph() {
-		Programmer programmer2 = new Programmer("programmer2", Collections.<Programmer>emptySet());
-		Set<Programmer> recommendations = Sets.newHashSet(programmer2);
-		Programmer programmer = new Programmer("programmer1", recommendations);
-	    
+		Programmer programmer2 = new Programmer("programmer2", Sets.<String>newHashSet());
+		Programmer programmer = new Programmer("programmer1", Sets.<String>newHashSet());
+	    programmer.addRecommendation(programmer2);
 		// calculate the kudos..
 		assertEquals(programmer.getKudos(), 1);
 	}
 	
 	@Test
 	public void test() {	
-		Programmer a = new Programmer("programmer2", Collections.<Programmer>emptySet());
-		Programmer b = new Programmer("programmer2", Collections.<Programmer>emptySet());
-		Programmer c = new Programmer("programmer2", Collections.<Programmer>emptySet());
-		Programmer d = new Programmer("programmer2", Collections.<Programmer>emptySet());
+		Programmer a = new Programmer("programmer2", Sets.<String>newHashSet());
+		Programmer b = new Programmer("programmer2", Sets.<String>newHashSet());
+		Programmer c = new Programmer("programmer2", Sets.<String>newHashSet());
+		Programmer d = new Programmer("programmer2", Sets.<String>newHashSet());
 		
 		a.addRecommendation(b);
 		a.addRecommendation(c);
