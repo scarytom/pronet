@@ -1,16 +1,18 @@
 package com.scarytom;
 
 import java.util.Set;
+import java.util.TreeSet;
 
+import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class Network {
 
 	private static final String HEADER = "Programmer\tSkills\tRecommends";
-	private final Set<Programmer> _programmers;
+	private final TreeSet<Programmer> _programmers;
 
 	public Network(final Set<Programmer> programmers) {
-		_programmers = programmers;
+		_programmers = Sets.newTreeSet(programmers);
 	}
 
 	public String printout() {

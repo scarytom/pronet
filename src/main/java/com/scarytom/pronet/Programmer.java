@@ -2,13 +2,16 @@ package com.scarytom.pronet;
 
 import java.util.Set;
 
-public class Programmer {
-	private final String name;
-	private final Set<Programmer> recommendations;
+import com.google.common.collect.Sets;
 
-	public Programmer(final String name, final Set<Programmer> recommendations) {
+public class Programmer implements Comparable<Programmer> {
+	private final String name;
+	private final Set<Programmer> recommendations = Sets.newTreeSet();
+	private final Set<String> skills;
+
+	public Programmer(final String name, final Set<String> skills) {
 		this.name = name;
-		this.recommendations = recommendations;
+		this.skills = skills;
 	}
 
 	public Set<Programmer> recommendations() {
@@ -20,11 +23,15 @@ public class Programmer {
 	}
 
 	public Set<String> skills() {
-		return null;
+		return this.skills;
 	}
 
 	public void addRecommendation(final Programmer recommendation) {
-
 		this.recommendations.add(recommendation);
+	}
+
+	@Override
+	public int compareTo(final Programmer o) {
+		return name.compareTo(o.name);
 	}
 }
