@@ -26,8 +26,8 @@ public class Programmer {
 	public void addRecommendation(final Programmer recommendation) {
 		this.recommendations.add(recommendation);
 	}	
-	public int getKudos() {
-		return 0;
+	public double getKudos() {
+		return 0.0;
 	}
 
 	@Override
