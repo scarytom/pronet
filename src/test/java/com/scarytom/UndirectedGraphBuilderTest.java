@@ -14,15 +14,25 @@ import com.scarytom.pronet.Programmer;
 public class UndirectedGraphBuilderTest {
 	@Test
 	public void createsGraphWithTwoNodes() throws Exception {
-		Set<Programmer> recommendations = newHashSet();
-		Programmer davie = new Programmer("davie", Sets.<String>newHashSet());
-		recommendations.add(davie);
+		Programmer recommendee = new Programmer("davie", new HashSet<String>());
 		
 		Programmer tom = new Programmer("tom", Sets.<String>newHashSet());
-        tom.addRecommendation(davie);
+        tom.addRecommendation(recommendee);
 		
-		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(davie, tom));
-		Set<Programmer> recommenders = graphBuilder.whoRecommends(davie);
+		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(recommendee, tom));
+		Set<Programmer> recommenders = graphBuilder.whoRecommends(recommendee);
+		assertEquals(newHashSet(tom), recommenders);
+	}
+	
+	@Test
+	public void canRecommendMikeInstead() throws Exception {
+		Programmer recommendee = new Programmer("mike", new HashSet<String>());
+		
+		Programmer tom = new Programmer("tom", new HashSet<String>());
+		tom.addRecommendation(recommendee);
+		
+		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(recommendee, tom));
+		Set<Programmer> recommenders = graphBuilder.whoRecommends(recommendee);
 		assertEquals(newHashSet(tom), recommenders);
 	}
 }
