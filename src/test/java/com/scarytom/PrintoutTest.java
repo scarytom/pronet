@@ -1,11 +1,12 @@
 package com.scarytom;
 
-import java.util.Collections;
+import java.util.HashSet;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
+import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class PrintoutTest {
@@ -21,10 +22,13 @@ public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeSingleNodeNetwork() {
-		Programmer programmer = new Programmer("Bill", Collections.EMPTY_SET);
-		String result = new NetworkBuilder().withProgrammer(programmer).build()
-				.printout();
+		Programmer bill = new Programmer("Bill", new HashSet<Programmer>());
+		Programmer mary = new Programmer("Mary", Sets.newHashSet(bill));
+		bill.addRecommendation(mary);
 
-		Assert.assertEquals(HEADER + "\n" + "Bill\t\t", result);
+		String result = new NetworkBuilder().withProgrammer(bill)
+				.withProgrammer(mary).build().printout();
+		Assert.assertEquals(HEADER + "\n" + "Bill\t\tMary" + "\n"
+				+ "Mary\t\tBill", result);
 	}
 }
