@@ -14,8 +14,8 @@ import nu.xom.*;
 public class NetworkBuilder {
 	private final Set<Programmer> _programmer = new HashSet<Programmer>();
 
-    static NetworkBuilder buildNetwork() throws ParsingException, IOException {
-        File file = new File("src/main/resources/ProNet.xml");
+    public static NetworkBuilder buildNetwork(String filename) throws ParsingException, IOException {
+        File file = new File(filename);
 
         NetworkBuilder networkBuilder = new NetworkBuilder();
         Builder parser = new Builder();
