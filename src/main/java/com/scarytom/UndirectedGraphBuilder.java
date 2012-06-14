@@ -5,6 +5,7 @@ import static com.google.common.collect.Sets.newHashSet;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class UndirectedGraphBuilder {
@@ -12,12 +13,9 @@ public class UndirectedGraphBuilder {
 	}
 
 	public Set<Programmer> whoRecommends(Programmer programmer) {
-		Set<Programmer> recommendations = newHashSet();
-		Programmer davie = new Programmer("davie", new HashSet<Programmer>());
-		recommendations.add(davie);
-		
-		Programmer tom = new Programmer("tom", recommendations);
-
+		Programmer davie = new Programmer("davie", Sets.<String>newHashSet());
+		Programmer tom = new Programmer("tom", Sets.<String>newHashSet());
+        tom.addRecommendation(davie);
 		return newHashSet(tom);
 	}
 }
