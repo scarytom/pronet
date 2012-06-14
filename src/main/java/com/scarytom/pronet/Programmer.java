@@ -28,7 +28,8 @@ public class Programmer implements Comparable<Programmer> {
 
 	public void addRecommendation(final Programmer recommendation) {
 		this.recommendations.add(recommendation);
-	}	
+	}
+
 	public int getKudos() {
 		return 0;
 	}
@@ -46,28 +47,43 @@ public class Programmer implements Comparable<Programmer> {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((recommendations == null) ? 0 : recommendations.hashCode());
+		result = prime * result + ((skills == null) ? 0 : skills.hashCode());
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Programmer other = (Programmer) obj;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null) {
 				return false;
-		} else if (!name.equals(other.name))
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		if (recommendations == null) {
-			if (other.recommendations != null)
+			if (other.recommendations != null) {
 				return false;
-		} else if (!recommendations.equals(other.recommendations))
+			}
+		} else if (!recommendations.equals(other.recommendations)) {
 			return false;
+		}
+		if (skills == null) {
+			if (other.skills != null) {
+				return false;
+			}
+		} else if (!skills.equals(other.skills)) {
+			return false;
+		}
 		return true;
 	}
 
