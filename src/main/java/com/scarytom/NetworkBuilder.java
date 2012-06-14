@@ -1,7 +1,5 @@
 package com.scarytom;
 
-import java.util.Collections;
-
 import com.scarytom.pronet.Programmer;
 
 public class NetworkBuilder {
@@ -13,8 +11,8 @@ public class NetworkBuilder {
 
 	}
 
-	public NetworkBuilder withProgrammer() {
-		_programmer = new Programmer("Bill", Collections.EMPTY_SET);
+	public NetworkBuilder withProgrammer(final Programmer programmer) {
+		_programmer = programmer;
 		return this;
 	}
 }
