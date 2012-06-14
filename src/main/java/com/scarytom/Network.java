@@ -7,10 +7,10 @@ import com.scarytom.pronet.Programmer;
 public class Network {
 
 	public String printout() {
-		return "";
+		return "Programmer\tSkills\tRecommends";
 	}
 
-	public Set<Programmer> programmers(){
+	public Set<Programmer> programmers() {
 		return null;
 	}
 }

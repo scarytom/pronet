@@ -7,9 +7,10 @@ import org.junit.Test;
 public class PrintoutTest {
 
 	@Test
-	public void testCanDescribeNetwork() {
+	public void testCanDescribeEmptyNetwork() {
 		String result = new Network().printout();
-		Assert.assertEquals("", result);
+		String header = "Programmer\tSkills\tRecommends";
+		Assert.assertEquals(header, result);
 
 	}
 
