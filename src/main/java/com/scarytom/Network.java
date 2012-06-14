@@ -29,8 +29,13 @@ public class Network {
 	private String getRecommendations(final Programmer p) {
 		Set<Programmer> recommendations = p.recommendations();
 		String result = "";
+		int i = 0;
 		for (Programmer recommendation : recommendations) {
+			if (i != 0) {
+				result += ", ";
+			}
 			result += recommendation.name();
+			i++;
 		}
 		return result;
 	}

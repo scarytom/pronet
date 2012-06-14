@@ -24,11 +24,13 @@ public class PrintoutTest {
 	public void testCanDescribeSingleNodeNetwork() {
 		Programmer bill = new Programmer("Bill", new HashSet<Programmer>());
 		Programmer mary = new Programmer("Mary", Sets.newHashSet(bill));
+		Programmer luke = new Programmer("Luke", Sets.newHashSet(bill));
 		bill.addRecommendation(mary);
+		bill.addRecommendation(luke);
 
 		String result = new NetworkBuilder().withProgrammer(bill)
-				.withProgrammer(mary).build().printout();
-		Assert.assertEquals(HEADER + "\n" + "Bill\t\tMary" + "\n"
-				+ "Mary\t\tBill", result);
+				.withProgrammer(luke).withProgrammer(mary).build().printout();
+		Assert.assertEquals(HEADER + "\n" + "Bill\t\tMary, Luke" + "\n"
+				+ "Mary\t\tBill" + "\n" + "Luke\t\tBill", result);
 	}
 }
