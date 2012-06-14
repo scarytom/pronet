@@ -6,6 +6,7 @@ import static junit.framework.Assert.assertEquals;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.google.common.collect.Sets;
 import org.junit.Test;
 
 import com.scarytom.pronet.Programmer;
@@ -13,11 +14,10 @@ import com.scarytom.pronet.Programmer;
 public class UndirectedGraphBuilderTest {
 	@Test
 	public void createsGraphWithTwoNodes() throws Exception {
-		Set<Programmer> recommendations = newHashSet();
-		Programmer recommendee = new Programmer("davie", new HashSet<Programmer>());
-		recommendations.add(recommendee);
+		Programmer recommendee = new Programmer("davie", new HashSet<String>());
 		
-		Programmer tom = new Programmer("tom", recommendations);
+		Programmer tom = new Programmer("tom", Sets.<String>newHashSet());
+        tom.addRecommendation(recommendee);
 		
 		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(recommendee, tom));
 		Set<Programmer> recommenders = graphBuilder.whoRecommends(recommendee);
@@ -26,11 +26,10 @@ public class UndirectedGraphBuilderTest {
 	
 	@Test
 	public void canRecommendMikeInstead() throws Exception {
-		Set<Programmer> recommendations = newHashSet();
-		Programmer recommendee = new Programmer("mike", new HashSet<Programmer>());
-		recommendations.add(recommendee);
+		Programmer recommendee = new Programmer("mike", new HashSet<String>());
 		
-		Programmer tom = new Programmer("tom", recommendations);
+		Programmer tom = new Programmer("tom", new HashSet<String>());
+		tom.addRecommendation(recommendee);
 		
 		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(recommendee, tom));
 		Set<Programmer> recommenders = graphBuilder.whoRecommends(recommendee);

@@ -8,7 +8,6 @@ import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class UndirectedGraphBuilder {
-	
 	private final Map<Programmer, Set<Programmer>> recommendees = Maps.newHashMap();
 	
 	public UndirectedGraphBuilder(Set<Programmer> programmers) {
