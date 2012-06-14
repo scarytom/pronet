@@ -1,5 +1,9 @@
 package com.scarytom;
 
+import java.util.Set;
+
+import com.scarytom.pronet.Programmer;
+
 public class Network {
 
 	public void printout() {
@@ -7,4 +11,7 @@ public class Network {
 
 	}
 
+	public Set<Programmer> programmers(){
+		return null;
+	}
 }
