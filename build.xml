@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<project name="my-proj" default="snapshot" basedir=".">
+<project name="pronet" default="snapshot" basedir=".">
 
     <property name="target.version" value="0.0.1"/>
     <property name="build.dir"      value="${basedir}/build"/>
@@ -78,7 +78,7 @@
     </target>
 
     <target name="jar" description="Create Jar files" depends="clean,-version,-pack-deps">
-        <jar-module modulename="main" moduleversion="${version.label}" depsjar="${build.dir}/main-compiledeps.jar" mainclass="my-main-class"/>
+        <jar-module modulename="main" moduleversion="${version.label}" depsjar="${build.dir}/main-compiledeps.jar" mainclass="com.scarytom.Main"/>
         <jar-module modulename="test" moduleversion="${version.label}" depsjar="${build.dir}/test-compiledeps.jar"/>
     </target>
 
