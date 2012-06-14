@@ -33,11 +33,11 @@ public class KudosTest {
 		a.addRecommendation(b);
 		c.addRecommendation(c);
 		
-		Set<Programmer> recommendations = Sets.newHashSet(programmer2);
-		Programmer programmer = new Programmer("programmer1", recommendations);
+//		Set<Programmer> recommendations = Sets.newHashSet(programmer2);
+//		Programmer programmer = new Programmer("programmer1", recommendations);
 	    
 		// calculate the kudos..
-		assertEquals(programmer.getKudos(), 1);
+//		assertEquals(programmer.getKudos(), 1);
 	}
 	
 	
