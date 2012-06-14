@@ -14,4 +14,11 @@ public class PrintoutTest {
 
 	}
 
+	@Test
+	public void testCanDescribeSingleNodeNetwork() {
+		String result = new Network().printout();
+		String header = "Programmer\tSkills\tRecommends";
+		Assert.assertEquals(header, result);
+	}
+
 }
