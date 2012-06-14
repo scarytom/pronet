@@ -25,6 +25,10 @@ public class UndirectedGraphBuilder {
 	}
 
 	public Set<Programmer> whoRecommends(Programmer programmer) {
-		return recommendees.get(programmer);
+		Set<Programmer> result = recommendees.get(programmer);
+		if(result==null){
+			return Sets.newHashSet();
+		}
+		return result;
 	}
 }

@@ -35,4 +35,14 @@ public class UndirectedGraphBuilderTest {
 		Set<Programmer> recommenders = graphBuilder.whoRecommends(recommendee);
 		assertEquals(newHashSet(tom), recommenders);
 	}
+	
+	@Test
+	public void canRecommendNobody() throws Exception {
+		Programmer mike = new Programmer("mike", new HashSet<String>());
+		Programmer tom = new Programmer("tom", new HashSet<String>());
+		
+		UndirectedGraphBuilder graphBuilder = new UndirectedGraphBuilder(newHashSet(mike, tom));
+		Set<Programmer> recommenders = graphBuilder.whoRecommends(mike);
+		assertEquals(newHashSet(), recommenders);
+	}
 }
