@@ -31,13 +31,18 @@ public class KudosTest {
 		Programmer d = new Programmer("programmer2", Collections.<Programmer>emptySet());
 		
 		a.addRecommendation(b);
-		c.addRecommendation(c);
+		a.addRecommendation(c);
+		b.addRecommendation(c);
+		c.addRecommendation(a);
+		d.addRecommendation(c);
 		
-//		Set<Programmer> recommendations = Sets.newHashSet(programmer2);
-//		Programmer programmer = new Programmer("programmer1", recommendations);
-	    
-		// calculate the kudos..
-//		assertEquals(programmer.getKudos(), 1);
+//		A=1.49, B=0.78, C=1.59, D=0.15
+		
+		
+		assertEquals(a.getKudos(), 1.49, 0.001);
+		assertEquals(b.getKudos(), 0.78, 0.001);
+		assertEquals(c.getKudos(), 1.59, 0.001);
+		assertEquals(d.getKudos(), 0.15, 0.001);
 	}
 	
 	
