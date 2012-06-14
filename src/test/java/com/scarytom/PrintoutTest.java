@@ -6,7 +6,6 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.google.common.collect.Sets;
 import com.scarytom.pronet.Programmer;
 
 public class PrintoutTest {
@@ -22,15 +21,24 @@ public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeSingleNodeNetwork() {
-		Programmer bill = new Programmer("Bill", new HashSet<Programmer>());
-		Programmer mary = new Programmer("Mary", Sets.newHashSet(bill));
-		Programmer luke = new Programmer("Luke", Sets.newHashSet(bill));
+		Programmer bill = new Programmer("Bill", new HashSet<String>());
+		Programmer mary = new Programmer("Mary", new HashSet<String>());
+		mary.addRecommendation(bill);
+		Programmer luke = new Programmer("Luke", new HashSet<String>());
+		luke.addRecommendation(bill);
 		bill.addRecommendation(mary);
 		bill.addRecommendation(luke);
 
 		String result = new NetworkBuilder().withProgrammer(bill)
 				.withProgrammer(luke).withProgrammer(mary).build().printout();
-		Assert.assertEquals(HEADER + "\n" + "Bill\t\tMary, Luke" + "\n"
-				+ "Mary\t\tBill" + "\n" + "Luke\t\tBill", result);
+		Assert.assertEquals(HEADER
+
+		+ "\n" + "Bill\t\tLuke, Mary"
+
+		+ "\n" + "Luke\t\tBill"
+
+		+ "\n" + "Mary\t\tBill"
+
+		, result);
 	}
 }
