@@ -21,7 +21,16 @@ public class Network {
 	private String printProgrammers() {
 		String result = "";
 		for (Programmer p : _programmers) {
-			result += "\n" + p.name() + "\t" + "\t";
+			result += "\n" + p.name() + "\t" + "\t" + getRecommendations(p);
+		}
+		return result;
+	}
+
+	private String getRecommendations(final Programmer p) {
+		Set<Programmer> recommendations = p.recommendations();
+		String result = "";
+		for (Programmer recommendation : recommendations) {
+			result += recommendation.name();
 		}
 		return result;
 	}
