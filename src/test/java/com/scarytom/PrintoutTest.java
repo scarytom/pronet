@@ -8,7 +8,7 @@ public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeEmptyNetwork() {
-		String result = new Network().printout();
+		String result = new NetworkBuilder().build().printout();
 		String header = "Programmer\tSkills\tRecommends";
 		Assert.assertEquals(header, result);
 
@@ -16,8 +16,10 @@ public class PrintoutTest {
 
 	@Test
 	public void testCanDescribeSingleNodeNetwork() {
-		String result = new Network().printout();
+		String result = new NetworkBuilder().withProgrammer().build()
+				.printout();
 		String header = "Programmer\tSkills\tRecommends";
+
 		Assert.assertEquals(header, result);
 	}
 
