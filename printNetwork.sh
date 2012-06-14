@@ -1,0 +1,1 @@
+java -cp build/pronet-main-0.0.1.jar com.scarytom.pronet.NetworkPrinter src/main/resources/ProNet.xml
