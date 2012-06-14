@@ -10,3 +10,5 @@ __Authors__
 * Mike Hill
 * Ignasi
 * staletester
+
+together forming the _more-tea-please_ team
