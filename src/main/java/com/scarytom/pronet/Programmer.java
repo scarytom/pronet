@@ -24,7 +24,11 @@ public class Programmer {
 	}
 
 	public void addRecommendation(final Programmer recommendation) {
-
 		this.recommendations.add(recommendation);
 	}
+	
+	public int getKudos() {
+		return 0;
+	}
+
 }
