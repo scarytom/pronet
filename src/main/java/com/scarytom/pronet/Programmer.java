@@ -45,9 +45,6 @@ public class Programmer implements Comparable<Programmer> {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((recommendations == null) ? 0 : recommendations.hashCode());
-		result = prime * result + ((skills == null) ? 0 : skills.hashCode());
 		return result;
 	}
 
@@ -68,20 +65,6 @@ public class Programmer implements Comparable<Programmer> {
 				return false;
 			}
 		} else if (!name.equals(other.name)) {
-			return false;
-		}
-		if (recommendations == null) {
-			if (other.recommendations != null) {
-				return false;
-			}
-		} else if (!recommendations.equals(other.recommendations)) {
-			return false;
-		}
-		if (skills == null) {
-			if (other.skills != null) {
-				return false;
-			}
-		} else if (!skills.equals(other.skills)) {
 			return false;
 		}
 		return true;
