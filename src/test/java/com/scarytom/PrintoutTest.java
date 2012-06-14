@@ -1,13 +1,24 @@
 package com.scarytom;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 public class PrintoutTest {
 
 	@Test
-	public void testCanDescribeNetwork() {
-		new Network().printout();
+	public void testCanDescribeEmptyNetwork() {
+		String result = new Network().printout();
+		String header = "Programmer\tSkills\tRecommends";
+		Assert.assertEquals(header, result);
 
+	}
+
+	@Test
+	public void testCanDescribeSingleNodeNetwork() {
+		String result = new Network().printout();
+		String header = "Programmer\tSkills\tRecommends";
+		Assert.assertEquals(header, result);
 	}
 
 }
